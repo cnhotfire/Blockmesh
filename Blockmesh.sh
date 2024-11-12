@@ -116,7 +116,7 @@ function deploy_node() {
 function view_logs() {
     # 使用 Docker 查看名为 blockmesh-cli-container 的容器的最后 100 行日志
     echo "查看 blockmesh-cli-container 容器的日志内容："
-    docker logs --tail 100 blockmesh-cli-container
+    docker logs -f -n 100 blockmesh-cli-container
 
     # 检查容器是否存在
     if [ $? -ne 0 ]; then
