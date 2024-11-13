@@ -85,7 +85,7 @@ function deploy_node() {
 
     # 下载并解压最新版 BlockMesh CLI
     echo "下载并解压 BlockMesh CLI..."
-    curl -L https://github.com/block-mesh/block-mesh-monorepo/releases/download/v0.0.365/blockmesh-cli-x86_64-unknown-linux-gnu.tar.gz -o blockmesh-cli.tar.gz
+    curl -L https://github.com/block-mesh/block-mesh-monorepo/releases/download/v0.0.369/blockmesh-cli-x86_64-unknown-linux-gnu.tar.gz -o blockmesh-cli.tar.gz
     tar -xzf blockmesh-cli.tar.gz --strip-components=3 -C target/release
 
     # 验证解压结果
@@ -101,7 +101,7 @@ function deploy_node() {
 
     # 使用 BlockMesh CLI 创建 Docker 容器
     echo "为 BlockMesh CLI 创建 Docker 容器..."
-    docker run -it --rm \
+    docker run -d --rm \
         --name blockmesh-cli-container \
         -v $(pwd)/target/release:/app \
         -e EMAIL="$email" \
