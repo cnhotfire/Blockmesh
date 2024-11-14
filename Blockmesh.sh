@@ -101,7 +101,7 @@ function deploy_node() {
 
     # 使用 BlockMesh CLI 创建 Docker 容器
     echo "为 BlockMesh CLI 创建 Docker 容器..."
-    docker run --rm \
+    docker run -it --rm \
         --name blockmesh-cli-container \
         -v $(pwd)/target/release:/app \
         -e EMAIL="$email" \
